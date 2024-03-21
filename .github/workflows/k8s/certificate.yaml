@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: receipe-herissondev-certificate
+  namespace: herissondev
+spec:
+  # certificats wildcard
+  dnsNames:
+  - 'receipe.herisson.dev'
+
+  issuerRef:
+    kind: ClusterIssuer
+    name: cert-manager-herissondev 
+  secretName: receipe-herissondev-wildcard-certificate-secret
