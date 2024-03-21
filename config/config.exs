@@ -21,12 +21,6 @@ config :ai_receipe, AiReceipeWeb.Endpoint,
   pubsub_server: AiReceipe.PubSub,
   live_view: [signing_salt: "tfxb3Wf9"]
 
-config :instructor,
-  adapter: Instructor.Adapters.OpenAI,
-  openai: [
-    api_key: "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"
-  ]
-
 # Configure esbuild (the version is required)
 config :esbuild,
   version: "0.17.11",
