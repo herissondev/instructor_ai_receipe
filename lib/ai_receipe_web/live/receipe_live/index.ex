@@ -61,7 +61,7 @@ defmodule AiReceipeWeb.ReceipeLive.Index do
   def mount(_params, _session, socket) do
     socket =
       socket
-      # |> assign(:receipe, AsyncResult.ok(@base))
+      #  |> assign(:receipe, AsyncResult.ok(@base))
 
       |> assign(:receipe, nil)
 

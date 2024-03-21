@@ -23,7 +23,8 @@ defmodule AiReceipe.ReceipeGenerator do
 
   defp build_prompt(user_instructions) do
     """
-    Build a food receipe from the given intruction you can add other ingredients but try to use as much of the users ingredients as possible, if none provided invent one from scratch. 
+    Generate a food receipe from the given intruction you can add other ingredients but try to use as much of the users ingredients as possible, if none provided invent one from scratch. 
+    Be precise in the steps. 
     --- start instruction ---
     #{user_instructions}
     --- end instruction ---

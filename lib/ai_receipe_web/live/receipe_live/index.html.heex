@@ -1,4 +1,4 @@
-<div class="container mx-auto lg:px-40 md:px-20">
+<div class="">
   <.header>
     Receipe generator
   </.header>
@@ -9,12 +9,23 @@
   <% else %>
     <.async_result :let={receipe} assign={@receipe}>
       <:loading>Loading a new receipe...</:loading>
-      <h2><%= receipe.name %></h2>
-      <h3 class="text-lg font-bold">Ingredients</h3>
-      <div class="flex flex-col gap-4">
-        <%= for ingr <- receipe.ingredients do %>
-          <.ingredient ingredient={ingr} />
-        <% end %>
+      <div class="w-full flex flex-col justify-between md:flex-row">
+        <aside class="w-full md:w-[25%] mx-4">
+          <h3 class="text-lg font-bold">Ingredients</h3>
+          <div class="flex flex-col gap-4">
+            <%= for ingr <- receipe.ingredients do %>
+              <.ingredient ingredient={ingr} />
+            <% end %>
+          </div>
+        </aside>
+        <main class="w-[50%] mr-40">
+          <h3 class="text-lg font-bold">Steps</h3>
+          <ul role="list" class="space-y-6">
+            <%= for {step, index} <- Enum.with_index(receipe.steps) do %>
+              <.step step={step} index={index} />
+            <% end %>
+          </ul>
+        </main>
       </div>
     </.async_result>
   <% end %>
