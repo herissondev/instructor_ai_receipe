@@ -35,3 +35,8 @@ ai_receipe-*.tar
 npm-debug.log
 /assets/node_modules/
 
+
+.env
+.idea
+
+secret.yaml
