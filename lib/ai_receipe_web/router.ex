@@ -17,7 +17,9 @@ defmodule AiReceipeWeb.Router do
   scope "/", AiReceipeWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
+    live_session :receipe_generator, layout: false do
+      live "/", ReceipeLive.Index, :index
+    end
   end
 
   # Other scopes may use custom stacks.

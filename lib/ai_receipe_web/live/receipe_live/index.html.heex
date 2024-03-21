@@ -1,0 +1,21 @@
+<div class="container mx-auto lg:px-40 md:px-20">
+  <.header>
+    Receipe generator
+  </.header>
+  <%= if @receipe == nil do %>
+    <form phx-submit="generate">
+      <input name="user_instructions" type="text" placeholder="i have some tomatoes" />
+    </form>
+  <% else %>
+    <.async_result :let={receipe} assign={@receipe}>
+      <:loading>Loading a new receipe...</:loading>
+      <h2><%= receipe.name %></h2>
+      <h3 class="text-lg font-bold">Ingredients</h3>
+      <div class="flex flex-col gap-4">
+        <%= for ingr <- receipe.ingredients do %>
+          <.ingredient ingredient={ingr} />
+        <% end %>
+      </div>
+    </.async_result>
+  <% end %>
+</div>
