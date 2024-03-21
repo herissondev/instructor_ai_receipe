@@ -1,4 +1,4 @@
-# AiReceipe
+# AiRecipe
 
 To start your Phoenix server:
 

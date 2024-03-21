@@ -1,9 +1,9 @@
-defmodule AiReceipe.MixProject do
+defmodule AiRecipe.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :ai_receipe,
+      app: :ai_recipe,
       version: "0.1.0",
       elixir: "~> 1.14",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -18,7 +18,7 @@ defmodule AiReceipe.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {AiReceipe.Application, []},
+      mod: {AiRecipe.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end

@@ -8,7 +8,7 @@ spec:
     - websecure
 
   routes:
-    - match: Host(`receipe.herisson.dev`)
+    - match: Host(`recipe.herisson.dev`)
       kind: Rule
       middlewares:
         - name: redirect-to-nonwww

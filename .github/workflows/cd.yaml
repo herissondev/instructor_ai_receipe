@@ -36,7 +36,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: aimerisson/receipe.herisson.dev:${{ steps.commit.outputs.short }}
+          tags: aimerisson/recipe.herisson.dev:${{ steps.commit.outputs.short }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
@@ -55,4 +55,4 @@ jobs:
             .github/workflows/k8s/ingress.yaml
             .github/workflows/k8s/service.yaml
           images: |
-            aimerisson/receipe.herisson.dev:${{ steps.commit.outputs.short }}
+            aimerisson/recipe.herisson.dev:${{ steps.commit.outputs.short }}

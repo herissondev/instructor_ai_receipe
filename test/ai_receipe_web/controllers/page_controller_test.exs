@@ -1,5 +1,5 @@
-defmodule AiReceipeWeb.PageControllerTest do
-  use AiReceipeWeb.ConnCase
+defmodule AiRecipeWeb.PageControllerTest do
+  use AiRecipeWeb.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get(conn, ~p"/")

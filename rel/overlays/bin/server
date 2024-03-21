@@ -2,4 +2,4 @@
 set -eu
 
 cd -P -- "$(dirname -- "$0")"
-PHX_SERVER=true exec ./ai_receipe start
+PHX_SERVER=true exec ./ai_recipe start

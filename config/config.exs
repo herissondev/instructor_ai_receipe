@@ -7,18 +7,18 @@
 # General application configuration
 import Config
 
-config :ai_receipe,
+config :ai_recipe,
   generators: [timestamp_type: :utc_datetime]
 
 # Configures the endpoint
-config :ai_receipe, AiReceipeWeb.Endpoint,
+config :ai_recipe, AiRecipeWeb.Endpoint,
   url: [host: "localhost"],
   adapter: Phoenix.Endpoint.Cowboy2Adapter,
   render_errors: [
-    formats: [html: AiReceipeWeb.ErrorHTML, json: AiReceipeWeb.ErrorJSON],
+    formats: [html: AiRecipeWeb.ErrorHTML, json: AiRecipeWeb.ErrorJSON],
     layout: false
   ],
-  pubsub_server: AiReceipe.PubSub,
+  pubsub_server: AiRecipe.PubSub,
   live_view: [signing_salt: "tfxb3Wf9"]
 
 # Configure esbuild (the version is required)

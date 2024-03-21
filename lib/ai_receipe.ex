@@ -1,6 +1,6 @@
-defmodule AiReceipe do
+defmodule AiRecipe do
   @moduledoc """
-  AiReceipe keeps the contexts that define your domain
+  AiRecipe keeps the contexts that define your domain
   and business logic.
 
   Contexts are also responsible for managing your data, regardless

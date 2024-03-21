@@ -1,20 +1,20 @@
-defmodule AiReceipe.ReceipesFixtures do
+defmodule AiRecipe.RecipesFixtures do
   @moduledoc """
   This module defines test helpers for creating
-  entities via the `AiReceipe.Receipes` context.
+  entities via the `AiRecipe.Recipes` context.
   """
 
   @doc """
-  Generate a receipe.
+  Generate a recipe.
   """
-  def receipe_fixture(attrs \\ %{}) do
-    {:ok, receipe} =
+  def recipe_fixture(attrs \\ %{}) do
+    {:ok, recipe} =
       attrs
       |> Enum.into(%{
 
       })
-      |> AiReceipe.Receipes.create_receipe()
+      |> AiRecipe.Recipes.create_recipe()
 
-    receipe
+    recipe
   end
 end

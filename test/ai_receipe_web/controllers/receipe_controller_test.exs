@@ -1,9 +1,9 @@
-defmodule AiReceipeWeb.ReceipeControllerTest do
-  use AiReceipeWeb.ConnCase
+defmodule AiRecipeWeb.RecipeControllerTest do
+  use AiRecipeWeb.ConnCase
 
-  import AiReceipe.ReceipesFixtures
+  import AiRecipe.RecipesFixtures
 
-  alias AiReceipe.Receipes.Receipe
+  alias AiRecipe.Recipes.Recipe
 
   @create_attrs %{
 
@@ -18,18 +18,18 @@ defmodule AiReceipeWeb.ReceipeControllerTest do
   end
 
   describe "index" do
-    test "lists all receipes", %{conn: conn} do
-      conn = get(conn, ~p"/api/receipes")
+    test "lists all recipes", %{conn: conn} do
+      conn = get(conn, ~p"/api/recipes")
       assert json_response(conn, 200)["data"] == []
     end
   end
 
-  describe "create receipe" do
-    test "renders receipe when data is valid", %{conn: conn} do
-      conn = post(conn, ~p"/api/receipes", receipe: @create_attrs)
+  describe "create recipe" do
+    test "renders recipe when data is valid", %{conn: conn} do
+      conn = post(conn, ~p"/api/recipes", recipe: @create_attrs)
       assert %{"id" => id} = json_response(conn, 201)["data"]
 
-      conn = get(conn, ~p"/api/receipes/#{id}")
+      conn = get(conn, ~p"/api/recipes/#{id}")
 
       assert %{
                "id" => ^id
@@ -37,46 +37,46 @@ defmodule AiReceipeWeb.ReceipeControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn} do
-      conn = post(conn, ~p"/api/receipes", receipe: @invalid_attrs)
+      conn = post(conn, ~p"/api/recipes", recipe: @invalid_attrs)
       assert json_response(conn, 422)["errors"] != %{}
     end
   end
 
-  describe "update receipe" do
-    setup [:create_receipe]
+  describe "update recipe" do
+    setup [:create_recipe]
 
-    test "renders receipe when data is valid", %{conn: conn, receipe: %Receipe{id: id} = receipe} do
-      conn = put(conn, ~p"/api/receipes/#{receipe}", receipe: @update_attrs)
+    test "renders recipe when data is valid", %{conn: conn, recipe: %Recipe{id: id} = recipe} do
+      conn = put(conn, ~p"/api/recipes/#{recipe}", recipe: @update_attrs)
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 
-      conn = get(conn, ~p"/api/receipes/#{id}")
+      conn = get(conn, ~p"/api/recipes/#{id}")
 
       assert %{
                "id" => ^id
              } = json_response(conn, 200)["data"]
     end
 
-    test "renders errors when data is invalid", %{conn: conn, receipe: receipe} do
-      conn = put(conn, ~p"/api/receipes/#{receipe}", receipe: @invalid_attrs)
+    test "renders errors when data is invalid", %{conn: conn, recipe: recipe} do
+      conn = put(conn, ~p"/api/recipes/#{recipe}", recipe: @invalid_attrs)
       assert json_response(conn, 422)["errors"] != %{}
     end
   end
 
-  describe "delete receipe" do
-    setup [:create_receipe]
+  describe "delete recipe" do
+    setup [:create_recipe]
 
-    test "deletes chosen receipe", %{conn: conn, receipe: receipe} do
-      conn = delete(conn, ~p"/api/receipes/#{receipe}")
+    test "deletes chosen recipe", %{conn: conn, recipe: recipe} do
+      conn = delete(conn, ~p"/api/recipes/#{recipe}")
       assert response(conn, 204)
 
       assert_error_sent 404, fn ->
-        get(conn, ~p"/api/receipes/#{receipe}")
+        get(conn, ~p"/api/recipes/#{recipe}")
       end
     end
   end
 
-  defp create_receipe(_) do
-    receipe = receipe_fixture()
-    %{receipe: receipe}
+  defp create_recipe(_) do
+    recipe = recipe_fixture()
+    %{recipe: recipe}
   end
 end

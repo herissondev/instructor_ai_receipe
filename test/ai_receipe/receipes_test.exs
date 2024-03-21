@@ -1,57 +1,57 @@
-defmodule AiReceipe.ReceipesTest do
-  use AiReceipe.DataCase
+defmodule AiRecipe.RecipesTest do
+  use AiRecipe.DataCase
 
-  alias AiReceipe.Receipes
+  alias AiRecipe.Recipes
 
-  describe "receipes" do
-    alias AiReceipe.Receipes.Receipe
+  describe "recipes" do
+    alias AiRecipe.Recipes.Recipe
 
-    import AiReceipe.ReceipesFixtures
+    import AiRecipe.RecipesFixtures
 
     @invalid_attrs %{}
 
-    test "list_receipes/0 returns all receipes" do
-      receipe = receipe_fixture()
-      assert Receipes.list_receipes() == [receipe]
+    test "list_recipes/0 returns all recipes" do
+      recipe = recipe_fixture()
+      assert Recipes.list_recipes() == [recipe]
     end
 
-    test "get_receipe!/1 returns the receipe with given id" do
-      receipe = receipe_fixture()
-      assert Receipes.get_receipe!(receipe.id) == receipe
+    test "get_recipe!/1 returns the recipe with given id" do
+      recipe = recipe_fixture()
+      assert Recipes.get_recipe!(recipe.id) == recipe
     end
 
-    test "create_receipe/1 with valid data creates a receipe" do
+    test "create_recipe/1 with valid data creates a recipe" do
       valid_attrs = %{}
 
-      assert {:ok, %Receipe{} = receipe} = Receipes.create_receipe(valid_attrs)
+      assert {:ok, %Recipe{} = recipe} = Recipes.create_recipe(valid_attrs)
     end
 
-    test "create_receipe/1 with invalid data returns error changeset" do
-      assert {:error, %Ecto.Changeset{}} = Receipes.create_receipe(@invalid_attrs)
+    test "create_recipe/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Recipes.create_recipe(@invalid_attrs)
     end
 
-    test "update_receipe/2 with valid data updates the receipe" do
-      receipe = receipe_fixture()
+    test "update_recipe/2 with valid data updates the recipe" do
+      recipe = recipe_fixture()
       update_attrs = %{}
 
-      assert {:ok, %Receipe{} = receipe} = Receipes.update_receipe(receipe, update_attrs)
+      assert {:ok, %Recipe{} = recipe} = Recipes.update_recipe(recipe, update_attrs)
     end
 
-    test "update_receipe/2 with invalid data returns error changeset" do
-      receipe = receipe_fixture()
-      assert {:error, %Ecto.Changeset{}} = Receipes.update_receipe(receipe, @invalid_attrs)
-      assert receipe == Receipes.get_receipe!(receipe.id)
+    test "update_recipe/2 with invalid data returns error changeset" do
+      recipe = recipe_fixture()
+      assert {:error, %Ecto.Changeset{}} = Recipes.update_recipe(recipe, @invalid_attrs)
+      assert recipe == Recipes.get_recipe!(recipe.id)
     end
 
-    test "delete_receipe/1 deletes the receipe" do
-      receipe = receipe_fixture()
-      assert {:ok, %Receipe{}} = Receipes.delete_receipe(receipe)
-      assert_raise Ecto.NoResultsError, fn -> Receipes.get_receipe!(receipe.id) end
+    test "delete_recipe/1 deletes the recipe" do
+      recipe = recipe_fixture()
+      assert {:ok, %Recipe{}} = Recipes.delete_recipe(recipe)
+      assert_raise Ecto.NoResultsError, fn -> Recipes.get_recipe!(recipe.id) end
     end
 
-    test "change_receipe/1 returns a receipe changeset" do
-      receipe = receipe_fixture()
-      assert %Ecto.Changeset{} = Receipes.change_receipe(receipe)
+    test "change_recipe/1 returns a recipe changeset" do
+      recipe = recipe_fixture()
+      assert %Ecto.Changeset{} = Recipes.change_recipe(recipe)
     end
   end
 end
