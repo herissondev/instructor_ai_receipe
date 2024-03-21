@@ -61,7 +61,8 @@ defmodule AiRecipeWeb.RecipeLive.Index do
   def mount(_params, _session, socket) do
     socket =
       socket
-      #  |> assign(:recipe, AsyncResult.ok(@base))
+      |> assign(:user_instructions, nil)
+      # |> assign(:recipe, AsyncResult.ok(@base))
 
       |> assign(:recipe, nil)
 
@@ -72,6 +73,7 @@ defmodule AiRecipeWeb.RecipeLive.Index do
   def handle_event("generate", %{"user_instructions" => instructions}, socket) do
     socket =
       socket
+      |> assign(:user_instructions, instructions)
       |> assign(:recipe, AsyncResult.loading())
       |> start_async(:generate_recipe, fn ->
         Recipes.create_recipe(instructions)

@@ -1,7 +1,4 @@
 <div class="">
-  <.header>
-    Recipe generator
-  </.header>
   <%= if @recipe == nil do %>
     <form phx-submit="generate">
       <input name="user_instructions" type="text" placeholder="i have some tomatoes" />
@@ -9,8 +6,17 @@
   <% else %>
     <.async_result :let={recipe} assign={@recipe}>
       <:loading>Loading a new recipe...</:loading>
+      <header class="p-4">
+        <h2 class="text-2xl font-bold"><%= recipe.name %></h2>
+        <!-- User quote -->
+        <%= if @user_instructions != nil do %>
+          <p class="text-sm text-gray-500">
+            <span class="underline">Based on your instructions:</span> <%= @user_instructions %>
+          </p>
+        <% end %>
+      </header>
       <div class="w-full flex flex-col justify-between md:flex-row">
-        <aside class="w-full md:w-[25%] mx-4">
+        <aside class="w-full md:w-[25%] p-4">
           <h3 class="text-lg font-bold">Ingredients</h3>
           <div class="flex flex-col gap-4">
             <%= for ingr <- recipe.ingredients do %>
@@ -18,9 +24,9 @@
             <% end %>
           </div>
         </aside>
-        <main class="w-[50%] mr-40">
-          <h3 class="text-lg font-bold">Steps</h3>
-          <ul role="list" class="space-y-6">
+        <main class="md:w-[50%] p-4 md:p-0 md:mr-40">
+          <h3 class="text-lg font-bold mb-2">Steps</h3>
+          <ul role="list" class="">
             <%= for {step, index} <- Enum.with_index(recipe.steps) do %>
               <.step step={step} index={index} />
             <% end %>
