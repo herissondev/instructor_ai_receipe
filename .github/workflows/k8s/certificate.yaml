@@ -1,7 +1,7 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: receipe-herissondev-certificate
+  name: recipe-herissondev-certificate
   namespace: herissondev
 spec:
   # certificats wildcard
@@ -11,4 +11,4 @@ spec:
   issuerRef:
     kind: ClusterIssuer
     name: cert-manager-herissondev 
-  secretName: receipe-herissondev-wildcard-certificate-secret
+  secretName: recipe-herissondev-wildcard-certificate-secret

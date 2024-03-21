@@ -11,8 +11,8 @@ defmodule AiRecipe.Application do
       AiRecipeWeb.Telemetry,
       {DNSCluster, query: Application.get_env(:ai_recipe, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: AiRecipe.PubSub},
-      # Start a worker by calling: AiReceipe.Worker.start_link(arg)
-      # {AiReceipe.Worker, arg},
+      # Start a worker by calling: AiRecipe.Worker.start_link(arg)
+      # {AiRecipe.Worker, arg},
       # Start to serve requests, typically the last entry
       AiRecipeWeb.Endpoint
     ]

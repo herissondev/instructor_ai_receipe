@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-    name: receipe-herisson-dev
+    name: recipe-herisson-dev
     namespace: herissondev
     labels:
-        app: receipe-herisson-dev
+        app: recipe-herisson-dev
 spec:
     replicas: 1
     selector:
         matchLabels:
-            app: receipe-herisson-dev
+            app: recipe-herisson-dev
     template:
         metadata:
             labels:
-                app: receipe-herisson-dev
+                app: recipe-herisson-dev
         spec:
             containers:
-                - name: receipe-herisson-dev
-                  image: aimerisson/receipe.herisson.dev:latest
+                - name: recipe-herisson-dev
+                  image: aimerisson/recipe.herisson.dev:latest
                   ports:
                       - containerPort: 4000
 
@@ -25,16 +25,16 @@ spec:
                       - name: SECRET_KEY_BASE
                         valueFrom:
                             secretKeyRef:
-                                name: receipe-herissondev-secret
+                                name: recipe-herissondev-secret
                                 key: SECRET_KEY_BASE
                       -   name: OPEN_AI_API_KEY
                           valueFrom:
                               secretKeyRef:
-                                  name: receipe-herissondev-secret
+                                  name: recipe-herissondev-secret
                                   key: OPEN_AI_API_KEY
                       -   name: PHX_HOST
                           # env is herisson.dev
-                          value: receipe.herisson.dev
+                          value: recipe.herisson.dev
 
                   imagePullPolicy: Always
                   resources:

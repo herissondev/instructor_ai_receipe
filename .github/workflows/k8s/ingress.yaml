@@ -1,7 +1,7 @@
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: receipe-herissondev-ingress-https
+  name: recipe-herissondev-ingress-https
   namespace: herissondev
 spec:
   entryPoints:
@@ -14,8 +14,8 @@ spec:
         - name: redirect-to-nonwww
           namespace: herissondev
       services:
-        - name: receipe-herissondev-svc
+        - name: recipe-herissondev-svc
           port: 4000
   tls:
-    secretName: receipe-herissondev-wildcard-certificate-secret
+    secretName: recipe-herissondev-wildcard-certificate-secret
 
