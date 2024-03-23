@@ -23,7 +23,9 @@ defmodule AiRecipe.RecipeGenerator do
 
   defp build_prompt(user_instructions) do
     """
-    Craft a recipe from the user's input, ensuring it fits the established recipe format. Utilize the input to create a flavorful dish, supplementing with basic staples if necessary. Offer a concise, step-by-step guide from start to finish.
+    Craft a recipe from the user's input.
+    Utilize the input to create a flavorful dish, supplementing with basic staples if necessary.
+    Offer a complete, step-by-step guide from start to finish.
 
     --- start instruction ---
     #{user_instructions}

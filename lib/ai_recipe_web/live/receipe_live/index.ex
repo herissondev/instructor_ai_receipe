@@ -83,6 +83,16 @@ defmodule AiRecipeWeb.RecipeLive.Index do
   end
 
   @impl true
+  def handle_event("clean", _params, socket) do
+    socket =
+      socket
+      |> assign(:user_instructions, nil)
+      |> assign(:recipe, nil)
+
+    {:noreply, socket}
+  end
+
+  @impl true
   def handle_async(:generate_recipe, {:ok, generated_recipe}, socket) do
     %{recipe: recipe} = socket.assigns
     {:noreply, assign(socket, :recipe, AsyncResult.ok(recipe, generated_recipe))}
